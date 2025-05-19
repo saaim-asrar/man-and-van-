@@ -7,5 +7,7 @@ import { Component } from '@angular/core';
   styleUrl: './home.component.css'
 })
 export class HomeComponent {
-
+ navigate() {
+    window.location.href = "contact";
+  }
 }
