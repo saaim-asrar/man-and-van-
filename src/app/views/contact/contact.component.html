@@ -5,34 +5,37 @@
             <h2>Get a Free Quote</h2>
             <p>Ready to move? Contact us today for a free, no-obligation quote.</p>
         </div>
-        <form class="contact-form">
+        <form class="contact-form" (ngSubmit)="addUser()">
             <div class="form-group">
                 <label for="name">Full Name</label>
-                <input type="text" id="name" class="form-control" required>
+                <input type="text" id="name" class="form-control" required 
+                    [(ngModel)]="newUser.name" name="name">
             </div>
             <div class="form-group">
                 <label for="email">Email Address</label>
-                <input type="email" id="email" class="form-control" required>
+                <input type="email" id="email" class="form-control" required
+                    [(ngModel)]="newUser.email" name="email">
             </div>
             <div class="form-group">
                 <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" class="form-control" required>
+                <input type="tel" id="phone" class="form-control" required
+                    [(ngModel)]="newUser.phone" name="phone">
             </div>
             <div class="form-group">
                 <label for="move-date">Move Date</label>
-                <input type="date" id="move-date" class="form-control" required>
+                <input type="date" id="move-date" class="form-control" required
+                    [(ngModel)]="newUser.moveDate" name="moveDate">
             </div>
             <div class="form-group">
                 <label for="message">Additional Details</label>
-                <textarea id="message" class="form-control"></textarea>
+                <textarea id="message" class="form-control"
+                    [(ngModel)]="newUser.message" name="message"></textarea>
             </div>
             <button type="submit" class="btn">Request Quote</button>
+            
+            <!-- Add success/error messages -->
+            <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+            <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
         </form>
     </div>
 </section>
-<ul>
-    <li *ngFor="let user of users">
-            {{user.name}} - {{user.email}} -{{user.id}}--  {{user.date}}
-    </li>
-
-</ul>
